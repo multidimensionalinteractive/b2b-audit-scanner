@@ -47,7 +47,7 @@ HTML = """
 </head>
 <body>
   <div class="container">
-    <h1>🛡️ B2B Security Scanner</h1>
+    <h1>B2B Security Scanner</h1>
     <p class="subtitle">Check any website's security headers and get a grade in seconds.</p>
 
     <form class="form-group" id="scanForm">
