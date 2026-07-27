@@ -2,7 +2,7 @@
 """Simple web UI for the B2B Audit Scanner — single file Flask app."""
 import os
 from flask import Flask, request, jsonify, render_template_string
-from scanner import scan_headers
+from scanner import scan_url
 
 app = Flask(__name__)
 
@@ -153,7 +153,7 @@ def api_scan():
         return jsonify({'error': 'url required'}), 400
     if not url.startswith('http'):
         url = 'https://' + url
-    result = scan_headers(url)
+    r = scan_url(url); result = {'score': r.score, 'grade': r.grade, 'headers': [{'name': h.header, 'status': 'pass' if h.found else ('warn' if not h.required else 'fail') , 'value': h.value} for h in r.checks]}
     return jsonify({
         'url': url,
         'score': result['score'],

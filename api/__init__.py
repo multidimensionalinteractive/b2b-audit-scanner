@@ -1,6 +1,6 @@
 import json, sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from scanner import scan_headers
+from scanner import scan_url
 import flask
 
 def handler(event, context):
